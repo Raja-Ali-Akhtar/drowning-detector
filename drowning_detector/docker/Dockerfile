@@ -4,7 +4,7 @@
 # ============================================================
 
 # ── Stage 1: Builder ────────────────────────────────────────
-FROM python:3.10-slim AS builder
+FROM python:3.14-slim AS builder
 
 WORKDIR /build
 
