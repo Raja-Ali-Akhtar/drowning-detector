@@ -1,0 +1,149 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drowning-detector"
+version = "0.1.0"
+description = "Real-time drowning detection system using computer vision and deep learning"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Raja Ali Akhtar", email = "rajaalaiakhtar07@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "torch>=2.1.0",
+    "torchvision>=0.16.0",
+    "ultralytics>=8.1.0",
+    "mediapipe>=0.10.9",
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "numpy>=1.26.0",
+    "opencv-python-headless>=4.9.0",
+    "loguru>=0.7.2",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "python-multipart>=0.0.6",
+    "websockets>=12.0",
+    "httpx>=0.26.0",
+    "sqlalchemy>=2.0.25",
+    "alembic>=1.13.0",
+    "asyncpg>=0.29.0",
+    "redis>=5.0.0",
+    "boto3>=1.34.0",
+    "twilio>=8.12.0",
+    "lap>=0.4.0",
+    "cython-bbox>=0.1.5",
+    "scikit-learn>=1.4.0",
+    "pandas>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-mock>=3.12.0",
+    "black>=24.1.0",
+    "ruff>=0.2.0",
+    "mypy>=1.8.0",
+    "isort>=5.13.0",
+    "pre-commit>=3.6.0",
+    "ipython>=8.20.0",
+    "ipykernel>=6.29.0",
+    "jupyter>=1.0.0",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "tensorboard>=2.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/rajaaliakhtar/drowning-detector"
+Repository = "https://github.com/rajaaliakhtar/drowning-detector"
+Issues = "https://github.com/rajaaliakhtar/drowning-detector/issues"
+
+[project.scripts]
+drowning-api = "drowning_detector.api.main:start"
+
+# ========================
+# Tool configurations
+# ========================
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["drowning_detector"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "SIM", # flake8-simplify
+]
+ignore = [
+    "E501",  # line too long (handled by black)
+    "B008",  # do not perform function calls in argument defaults (FastAPI depends)
+]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+exclude = ["venv", "build", "dist"]
+
+[tool.pytest.ini_options]
+testpaths = ["drowning_detector/tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks integration tests requiring external services",
+    "gpu: marks tests requiring GPU",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["drowning_detector"]
+omit = [
+    "drowning_detector/tests/*",
+    "drowning_detector/notebooks/*",
+]
+
+[tool.coverage.report]
+fail_under = 70
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.",
+    "if TYPE_CHECKING:",
+]
+
+[tool.setuptools.packages.find]
+include = ["drowning_detector*"]

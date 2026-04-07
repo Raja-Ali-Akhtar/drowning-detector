@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "automated"
+    reviewers:
+      - "rajaaliakhtar"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels:
+      - "ci/cd"
+      - "automated"
+
+  - package-ecosystem: docker
+    directory: "/drowning_detector/docker"
+    schedule:
+      interval: weekly
+    labels:
+      - "docker"
+      - "automated"

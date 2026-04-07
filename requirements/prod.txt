@@ -1,0 +1,9 @@
+# Production dependencies (pinned for reproducibility)
+-r base.txt
+
+# Production ASGI server
+gunicorn>=21.2.0
+
+# Monitoring
+prometheus-client>=0.20.0
+sentry-sdk[fastapi]>=1.40.0

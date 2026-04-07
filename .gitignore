@@ -1,0 +1,113 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.whl
+.python-version
+
+# ========================
+# Virtual environments
+# ========================
+venv/
+.venv/
+env/
+ENV/
+
+# ========================
+# IDE / Editor
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+secrets.yaml
+
+# ========================
+# Data (large files — tracked via DVC or S3)
+# ========================
+data/raw_video/
+data/clips/
+data/poses/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.npy
+*.npz
+!data/.gitkeep
+
+# ========================
+# Model weights (large binaries)
+# ========================
+models/detector/*.pt
+models/detector/*.onnx
+models/classifier/checkpoints/
+models/classifier/*.pt
+models/classifier/*.onnx
+!models/detector/.gitkeep
+!models/classifier/.gitkeep
+
+# ========================
+# Training artifacts
+# ========================
+runs/
+wandb/
+mlruns/
+*.log
+
+# ========================
+# Docker
+# ========================
+docker/volumes/
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ========================
+# Testing / Coverage
+# ========================
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+.mypy_cache/
+.ruff_cache/
+
+# ========================
+# Jupyter
+# ========================
+.ipynb_checkpoints/
+
+# ========================
+# Node (frontend)
+# ========================
+node_modules/
+frontend/dashboard/build/
+frontend/dashboard/.env.local

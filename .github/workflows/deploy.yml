@@ -1,0 +1,56 @@
+# ============================================================
+# Deploy to AWS EC2 — triggered on release or manual dispatch
+# ============================================================
+
+name: Deploy to AWS
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  deploy:
+    name: Deploy to ${{ github.event.inputs.environment || 'production' }}
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'production' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to EC2 via SSM
+        run: |
+          aws ssm send-command \
+            --instance-ids "${{ secrets.EC2_INSTANCE_ID }}" \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=[
+              "cd /home/ubuntu/drowning-detector",
+              "git pull origin main",
+              "docker-compose pull",
+              "docker-compose up -d --force-recreate",
+              "docker system prune -f"
+            ]' \
+            --timeout-seconds 300
+
+      - name: Verify deployment health
+        run: |
+          sleep 30
+          HEALTH=$(curl -sf "http://${{ secrets.EC2_PUBLIC_IP }}:8000/health" || echo '{"status":"error"}')
+          echo "Health check response: $HEALTH"
+          echo "$HEALTH" | grep -q '"status": "ok"' || exit 1

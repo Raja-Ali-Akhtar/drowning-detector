@@ -1,0 +1,15 @@
+# ============================================================
+# Code Owners — auto-assign PR reviewers
+# ============================================================
+
+# Default owner for everything
+* @rajaaliakhtar
+
+# ML model changes need careful review
+drowning_detector/models/ @rajaaliakhtar
+drowning_detector/core/constants.py @rajaaliakhtar
+
+# Infrastructure
+.github/ @rajaaliakhtar
+drowning_detector/docker/ @rajaaliakhtar
+Makefile @rajaaliakhtar
