@@ -3,7 +3,7 @@ name: Bug Report
 about: Report a bug in the drowning detection system
 title: "[BUG] "
 labels: bug
-assignees: rajaaliakhtar
+assignees: Raja-Ali-Akhtar
 ---
 
 ## Description

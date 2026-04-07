@@ -3,13 +3,13 @@
 # ============================================================
 
 # Default owner for everything
-* @rajaaliakhtar
+* @Raja-Ali-Akhtar
 
 # ML model changes need careful review
-drowning_detector/models/ @rajaaliakhtar
-drowning_detector/core/constants.py @rajaaliakhtar
+drowning_detector/models/ @Raja-Ali-Akhtar
+drowning_detector/core/constants.py @Raja-Ali-Akhtar
 
 # Infrastructure
-.github/ @rajaaliakhtar
-drowning_detector/docker/ @rajaaliakhtar
-Makefile @rajaaliakhtar
+.github/ @Raja-Ali-Akhtar
+drowning_detector/docker/ @Raja-Ali-Akhtar
+Makefile @Raja-Ali-Akhtar

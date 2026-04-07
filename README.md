@@ -1,7 +1,7 @@
 # Drowning Detection System
 
-[![CI](https://github.com/rajaaliakhtar/drowning-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/rajaaliakhtar/drowning-detector/actions/workflows/ci.yml)
-[![Docker](https://github.com/rajaaliakhtar/drowning-detector/actions/workflows/docker-build.yml/badge.svg)](https://github.com/rajaaliakhtar/drowning-detector/actions/workflows/docker-build.yml)
+[![CI](https://github.com/Raja-Ali-Akhtar/drowning-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/Raja-Ali-Akhtar/drowning-detector/actions/workflows/ci.yml)
+[![Docker](https://github.com/Raja-Ali-Akhtar/drowning-detector/actions/workflows/docker-build.yml/badge.svg)](https://github.com/Raja-Ali-Akhtar/drowning-detector/actions/workflows/docker-build.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -74,7 +74,7 @@ Camera (RTSP) ──► YOLOv8 (person detection)
 
 ```bash
 # Clone
-git clone https://github.com/rajaaliakhtar/drowning-detector.git
+git clone https://github.com/Raja-Ali-Akhtar/drowning-detector.git
 cd drowning-detector
 
 # Setup virtual environment
@@ -213,7 +213,7 @@ All endpoints return: `{"status": "...", "data": {...}, "error": null}`
 # AMI: Deep Learning AMI (Ubuntu 20.04)
 
 ssh -i keypair.pem ubuntu@<ec2-ip>
-git clone https://github.com/rajaaliakhtar/drowning-detector
+git clone https://github.com/Raja-Ali-Akhtar/drowning-detector
 cd drowning-detector
 cp .env.example .env  # fill in secrets
 docker-compose up -d

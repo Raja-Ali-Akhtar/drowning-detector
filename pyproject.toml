@@ -68,9 +68,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/rajaaliakhtar/drowning-detector"
-Repository = "https://github.com/rajaaliakhtar/drowning-detector"
-Issues = "https://github.com/rajaaliakhtar/drowning-detector/issues"
+Homepage = "https://github.com/Raja-Ali-Akhtar/drowning-detector"
+Repository = "https://github.com/Raja-Ali-Akhtar/drowning-detector"
+Issues = "https://github.com/Raja-Ali-Akhtar/drowning-detector/issues"
 
 [project.scripts]
 drowning-api = "drowning_detector.api.main:start"

@@ -10,7 +10,7 @@ updates:
       - "dependencies"
       - "automated"
     reviewers:
-      - "rajaaliakhtar"
+      - "Raja-Ali-Akhtar"
 
   - package-ecosystem: github-actions
     directory: "/"
