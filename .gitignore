@@ -51,6 +51,8 @@ secrets.yaml
 data/raw_video/
 data/clips/
 data/poses/
+data/.cache/
+data/annotations.csv
 *.mp4
 *.avi
 *.mov
