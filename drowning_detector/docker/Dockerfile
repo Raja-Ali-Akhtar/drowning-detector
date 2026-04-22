@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements/prod.txt
 
 
 # ── Stage 2: Runtime ────────────────────────────────────────
-FROM nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04 AS runtime
+FROM nvidia/cuda:12.2.2-cudnn8-runtime-ubuntu22.04 AS runtime
 
 # Prevent interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
