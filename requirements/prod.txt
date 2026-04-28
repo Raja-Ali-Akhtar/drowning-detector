@@ -5,5 +5,5 @@
 gunicorn>=21.2.0
 
 # Monitoring
-prometheus-client>=0.20.0
+prometheus-client>=0.25.0
 sentry-sdk[fastapi]>=1.40.0
