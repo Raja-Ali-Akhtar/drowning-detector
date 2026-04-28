@@ -2,7 +2,7 @@
 -r base.txt
 
 # Production ASGI server
-gunicorn>=21.2.0
+gunicorn>=25.3.0
 
 # Monitoring
 prometheus-client>=0.20.0
